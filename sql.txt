@@ -8,3 +8,14 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE suits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(100) NOT NULL,
+    color varchar(100),
+    neck int not null,
+    sleve int not null,
+    waist int not null, 
+    chest int not null,
+    amount INT NOT NULL,
+     price int not null
+);
