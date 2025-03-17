@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webshop</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="src/style/main_style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -77,6 +77,6 @@ if (!isset($_SESSION['user_id'])) {
         </aside>
     </main>
 
-    <script src="script.js"></script>
+    <script src="src/scripts/script.js"></script>
 </body>
 </html>
