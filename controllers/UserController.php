@@ -34,10 +34,13 @@ class UserController {
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header("Location: index.php?action=dashboard");
+            // Átirányítás a main.html oldalra
+            header("Location: main.php");
             exit();
         }
         
         return "Invalid email or password";
     }
+
+    
 }

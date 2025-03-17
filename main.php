@@ -1,3 +1,11 @@
+<?php
+session_start();
+// Ellenőrizzük, hogy be van-e jelentkezve a felhasználó
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -16,9 +24,16 @@
                 <li><a href="#">Termékek</a></li>
                 <li><a href="#">Rólunk</a></li>
                 <li><a href="#">Kapcsolat</a></li>
+                <li><a href="index.php" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Kijelentkezés</a></li>
+                <li>Üdvözöljük, <?php echo htmlspecialchars($_SESSION['username']); ?>!</li>
             </ul>
         </nav>
     </header>
+
+    <!-- Add this form after the header -->
+    <form id="logout-form" action="index.php" method="POST" style="display: none;">
+        <input type="hidden" name="logout" value="1">
+    </form>
 
     <main>
         <section class="products">
