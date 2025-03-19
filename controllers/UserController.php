@@ -34,8 +34,8 @@ class UserController {
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            // Átirányítás a main.html oldalra
-            header("Location: main.php");
+            // Átirányítás a Store.php oldalra
+            header("Location: Store.php");
             exit();
         }
         
