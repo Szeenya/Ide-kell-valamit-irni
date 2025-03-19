@@ -30,7 +30,8 @@ if (!isset($_SESSION['user_id'])) {
                         <button type="submit" style="background: none; border: none; color: white; cursor: pointer; text-decoration: underline;">Kijelentkezés</button>
                     </form>
                 </li>
-                <li>Üdvözöljük, <?php echo htmlspecialchars($_SESSION['username']); ?>!</li>
+                
+        <!---   <li>Üdvözöljük, <?php echo htmlspecialchars($_SESSION['username']); ?>!</li>-->
             </ul>
         </nav>
     </header>
@@ -39,11 +40,11 @@ if (!isset($_SESSION['user_id'])) {
         <section class="products">
             <div class="product-list">
                 <div class="product-card" onclick="showModal('product1.jpg', 'Ez egy stílusos termék leírása.', '10 000 Ft', 'Termék 1')">
-                    <img src="images/kep1.jpg" alt="Termék 1" class="product-image">
+                    <img src="src/images/kep1.jpg" alt="Termék 1" class="product-image">
                     <h3 class="product-title">Termék 1</h3>
                 </div>
                 <div class="product-card" onclick="showModal('product2.jpg', 'Ez egy másik stílusos termék leírása.', '15 000 Ft', 'Termék 2')">
-                    <img src="images/kep1.jpg" alt="Termék 2" class="product-image">
+                    <img src="src/images/kep1.jpg" alt="Termék 2" class="product-image">
                     <h3 class="product-title">Termék 2</h3>
                 </div>
                 <!-- További termékek -->
@@ -62,15 +63,8 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
-        <aside class="cart">
-            <h2>Kosár</h2>
-            <ul id="cart-items"></ul>
-            <p>Összesen: <span id="total-price">0</span> Ft</p>
-            <button onclick="clearCart()">Kosár törlése</button>
-        </aside>
-
+        <!-- Egyetlen kosár -->
         <div class="cart-wrapper">
-            <!-- Static cart in document flow -->
             <div id="cart" class="cart-main">
                 <h3>Kosár</h3>
                 <div class="cart-content">
