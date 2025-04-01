@@ -19,3 +19,18 @@ CREATE TABLE suits (
     amount INT NOT NULL,
      price int not null
 );
+INSERT INTO suits (type, color, neck, sleve, waist, chest, amount, price) 
+VALUES 
+('Slim Fit', 'Navy Blue', 40, 65, 85, 100, 5, 45000),
+('Classic Fit', 'Black', 42, 67, 90, 105, 3, 55000),
+('Modern Fit', 'Dark Grey', 41, 66, 88, 102, 4, 48000),
+('Double Breasted', 'Charcoal', 43, 68, 92, 108, 2, 65000),
+('Tuxedo', 'Black', 40, 65, 86, 100, 3, 75000),
+('Wedding Suit', 'White', 41, 66, 87, 101, 2, 85000),
+('Business Suit', 'Light Grey', 42, 67, 89, 104, 6, 52000),
+('Casual Suit', 'Brown', 40, 64, 84, 98, 4, 42000),
+('Italian Style', 'Navy Pinstripe', 41, 66, 86, 100, 3, 68000),
+('Summer Suit', 'Beige', 40, 65, 85, 99, 5, 46000);
+
+ALTER TABLE suits
+ADD COLUMN img_dir VARCHAR(255);

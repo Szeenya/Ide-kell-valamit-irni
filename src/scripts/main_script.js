@@ -2,22 +2,32 @@
 let cart = {};
 
 // Megjeleníti a modális ablakot
-function showModal(imageSrc, description, price, title) {
+function showModal(imageSrc, type, color, neck, sleeve, waist, chest, price) {
     const modal = document.getElementById('product-modal');
     const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
     const modalDescription = document.getElementById('modal-description');
     const modalPrice = document.getElementById('modal-price');
-    const modalTitle = document.getElementById('modal-title');
 
+    // Kép beállítása
     modalImage.src = imageSrc;
-    modalDescription.textContent = description;
-    modalPrice.textContent = `Ár: ${price}`;
-    modalTitle.textContent = title;
+    
+    // Cím beállítása
+    modalTitle.textContent = type;
+    
+    // Leírás beállítása
+    modalDescription.innerHTML = `
+        <p>Szín: ${color}</p>
+        <p>Nyakbőség: ${neck} cm</p>
+        <p>Ujjhossz: ${sleeve} cm</p>
+        <p>Derékbőség: ${waist} cm</p>
+        <p>Mellbőség: ${chest} cm</p>
+    `;
+    
+    // Ár beállítása
+    modalPrice.textContent = `${price.toLocaleString()} Ft`;
 
-    // Tároljuk a termék adatait a gombhoz
-    modal.dataset.title = title;
-    modal.dataset.price = price;
-
+    // Modal megjelenítése
     modal.style.display = 'flex';
 }
 
@@ -71,9 +81,15 @@ function updateCart() {
         priceSpan.className = 'cart-item-price';
         priceSpan.textContent = `${(item.price * item.quantity).toLocaleString()} Ft`;
         
+        const removeButton = document.createElement('button');
+        removeButton.className = 'remove-item';
+        removeButton.textContent = '×';
+        removeButton.onclick = () => removeFromCart(title);
+        
         itemDiv.appendChild(nameSpan);
         itemDiv.appendChild(quantitySpan);
         itemDiv.appendChild(priceSpan);
+        itemDiv.appendChild(removeButton);
         
         cartItems.appendChild(itemDiv);
         total += item.price * item.quantity;
@@ -91,10 +107,29 @@ window.onclick = function(event) {
     }
 }
 
+// Close modal with ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        hideModal();
+    }
+});
+
+// Kosár ürítése függvény javítása
 function clearCart() {
-    cart = [];
-    totalPrice = 0;
+    cart = {};  // Objektummá inicializáljuk, nem tömbbé
     updateCart();
+}
+
+// Kosárból törlés függvény hozzáadása
+function removeFromCart(title) {
+    if (cart[title]) {
+        if (cart[title].quantity > 1) {
+            cart[title].quantity -= 1;
+        } else {
+            delete cart[title];
+        }
+        updateCart();
+    }
 }
 
 function showInfo(card) {
