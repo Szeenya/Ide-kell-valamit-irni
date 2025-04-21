@@ -6,39 +6,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: url("https://mcdn.wallpapersafari.com/medium/7/42/xqlgfA.jpg");
+    backdrop-filter: blur(5px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 0 0 10px 10px;
-}
 
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
 
 main {
     display: flex;
@@ -141,22 +116,21 @@ footer .contact-info p {
 
 .product-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Növeltük a minimum szélességet */
-    gap: 30px; /* Nagyobb távolság a termékek között */
-    padding: 30px;
+    grid-template-columns: repeat(4, 1fr); /* 4 termék soronként */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Termékkártyák */
 .product-card {
-    position: relative;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
     cursor: pointer;
-    padding: 10px;
 }
 
 .product-card:hover {
@@ -220,6 +194,25 @@ footer .contact-info p {
 
 .product-button:hover {
     background-color: #0056b3;
+}
+
+/* Reszponzív viselkedés */
+@media (max-width: 1200px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 termék soronként */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 termék soronként */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-list {
+        grid-template-columns: 1fr; /* 1 termék soronként */
+    }
 }
 
 /* Modal stílusok */
@@ -437,4 +430,11 @@ footer .contact-info p {
 
 .contact-info p {
     margin: 5px 0;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    font-size: 1.1em;
 }

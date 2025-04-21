@@ -1,10 +1,15 @@
 <?php
 session_start();
-// Ellenőrizzük, hogy be van-e jelentkezve a felhasználó
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
+
+require_once 'config/config.php';
+require_once 'models/SuitModel.php';
+
+$suitModel = new SuitModel();
+$suits = $suitModel->getAllSuits();
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -14,24 +19,26 @@ if (!isset($_SESSION['user_id'])) {
     <title>Webshop</title>
     <link rel="stylesheet" href="src/style/main_style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style/navbar.css">
 </head>
 <body>
     <header>
-        <h1>Öltönykölcsönző</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Kezdőlap</a></li>
-                <li><a href="#">Termékek</a></li>
+        <nav class="navbar">
+            <div class="logo">
+                
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.php">Főoldal</a></li>
+                <li><a href="Store.php" class="active">Termékek</a></li>
                 <li><a href="#">Rólunk</a></li>
                 <li><a href="#">Kapcsolat</a></li>
-                <li>
-                    <form action="index.php" method="POST" style="display: inline;">
+                <li class="user-info">
+                    <span>Üdvözöljük, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
+                    <form action="index.php" method="POST">
                         <input type="hidden" name="logout" value="1">
-                        <button type="submit" style="background: none; border: none; color: white; cursor: pointer; text-decoration: underline;">Kijelentkezés</button>
+                        <button type="submit" class="logout-btn">Kijelentkezés</button>
                     </form>
                 </li>
-                
-        <!---   <li>Üdvözöljük, <?php echo htmlspecialchars($_SESSION['username']); ?>!</li>-->
             </ul>
         </nav>
     </header>
@@ -39,15 +46,19 @@ if (!isset($_SESSION['user_id'])) {
     <main>
         <section class="products">
             <div class="product-list">
-                <div class="product-card" onclick="showModal('product1.jpg', 'Ez egy stílusos termék leírása.', '10 000 Ft', 'Termék 1')">
-                    <img src="src/images/kep1.jpg" alt="Termék 1" class="product-image">
-                    <h3 class="product-title">Termék 1</h3>
+                <?php foreach ($suits as $suit): ?>
+                <div class="product-card" onclick="showModal(
+                    'src/images/kep1.jpg', 
+                    'Méret: <?php echo "Nyak: {$suit['neck']}cm, Ujj: {$suit['sleve']}cm, Derék: {$suit['waist']}cm, Mellkas: {$suit['chest']}cm"; ?>', 
+                    '<?php echo number_format($suit['price'], 0, ',', ' ') . ' Ft'; ?>', 
+                    '<?php echo htmlspecialchars($suit['type'] . " - " . $suit['color']); ?>')">
+                    <img src="src/images/kep1.jpg" 
+                         alt="<?php echo htmlspecialchars($suit['type']); ?>" 
+                         class="product-image">
+                    <h3 class="product-title"><?php echo htmlspecialchars($suit['type'] . " - " . $suit['color']); ?></h3>
+                    <p class="product-price"><?php echo number_format($suit['price'], 0, ',', ' '); ?> Ft</p>
                 </div>
-                <div class="product-card" onclick="showModal('product2.jpg', 'Ez egy másik stílusos termék leírása.', '15 000 Ft', 'Termék 2')">
-                    <img src="src/images/kep1.jpg" alt="Termék 2" class="product-image">
-                    <h3 class="product-title">Termék 2</h3>
-                </div>
-                <!-- További termékek -->
+                <?php endforeach; ?>
             </div>
         </section>
 
