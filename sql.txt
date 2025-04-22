@@ -31,3 +31,6 @@ CREATE TABLE shopping_cart (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (suit_id) REFERENCES suits(id) ON DELETE CASCADE
 );
+ALTER TABLE shopping_cart
+ADD COLUMN rented_from DATE,
+ADD COLUMN rented_until DATE;

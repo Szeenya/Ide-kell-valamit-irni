@@ -34,12 +34,9 @@ class UserController {
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header("Location: home.php");  // Changed from Store.php to home.php
-            exit();
+            return true; // Sikeres bejelentkezés
         }
         
-        return "Invalid email or password";
+        return "Hibás email cím vagy jelszó!"; // Hibaüzenet
     }
-
-    
 }

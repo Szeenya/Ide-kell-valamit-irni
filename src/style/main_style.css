@@ -196,6 +196,23 @@ footer .contact-info p {
     background-color: #0056b3;
 }
 
+.product-card.reserved {
+    position: relative;
+    opacity: 0.8;
+}
+
+.product-card.reserved::after {
+    content: 'Foglalt';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
 /* Reszponzív viselkedés */
 @media (max-width: 1200px) {
     .product-list {
@@ -437,4 +454,36 @@ footer .contact-info p {
     color: #333;
     margin: 10px 0;
     font-size: 1.1em;
+}
+
+.date-selection {
+    margin: 20px 0;
+}
+
+.date-selection label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.date-range {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.reserved-date {
+    background-color: #ffebee !important;
+    text-decoration: line-through;
+    color: #f44336 !important;
+}
+
+.reserved-date:hover {
+    background-color: #ffcdd2 !important;
+}
+
+.flatpickr-calendar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-radius: 4px;
 }

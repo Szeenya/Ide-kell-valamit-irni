@@ -27,4 +27,19 @@ class SuitModel {
             die("Error fetching suits: " . $e->getMessage());
         }
     }
+
+    public function getReservations($suitId) {
+        try {
+            $stmt = $this->pdo->prepare("
+                SELECT rented_from, rented_until 
+                FROM shopping_cart 
+                WHERE suit_id = ?
+            ");
+            $stmt->execute([$suitId]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            error_log($e->getMessage());
+            return [];
+        }
+    }
 }

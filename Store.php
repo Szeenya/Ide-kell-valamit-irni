@@ -20,6 +20,9 @@ $suits = $suitModel->getAllSuits();
     <link rel="stylesheet" href="src/style/main_style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/style/navbar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hu.js"></script>
 </head>
 <body>
     <header>
@@ -47,11 +50,14 @@ $suits = $suitModel->getAllSuits();
         <section class="products">
             <div class="product-list">
                 <?php foreach ($suits as $suit): ?>
-                <div class="product-card" onclick="showModal(
-                    'src/images/kep1.jpg', 
-                    'Méret: <?php echo "Nyak: {$suit['neck']}cm, Ujj: {$suit['sleve']}cm, Derék: {$suit['waist']}cm, Mellkas: {$suit['chest']}cm"; ?>', 
-                    '<?php echo number_format($suit['price'], 0, ',', ' ') . ' Ft'; ?>', 
-                    '<?php echo htmlspecialchars($suit['type'] . " - " . $suit['color']); ?>')">
+                <div class="product-card" 
+                     data-suit-id="<?php echo $suit['id']; ?>"
+                     onclick="showModal(
+                        <?php echo $suit['id']; ?>,
+                        'src/images/kep1.jpg', 
+                        'Méret: <?php echo "Nyak: {$suit['neck']}cm, Ujj: {$suit['sleve']}cm, Derék: {$suit['waist']}cm, Mellkas: {$suit['chest']}cm"; ?>', 
+                        '<?php echo number_format($suit['price'], 0, ',', ' ') . ' Ft'; ?>', 
+                        '<?php echo htmlspecialchars($suit['type'] . " - " . $suit['color']); ?>')">
                     <img src="src/images/kep1.jpg" 
                          alt="<?php echo htmlspecialchars($suit['type']); ?>" 
                          class="product-image">
@@ -70,7 +76,11 @@ $suits = $suitModel->getAllSuits();
                 <h3 id="modal-title"></h3>
                 <p id="modal-description"></p>
                 <p id="modal-price"></p>
-                <button class="modal-button" onclick="addToCart()">Kosárba</button>
+                <div class="date-selection">
+                    <label for="rental-dates">Bérlés időtartama:</label>
+                    <input type="text" id="rental-dates" class="date-range" placeholder="Válassza ki a dátumokat">
+                </div>
+                <button class="modal-button" onclick="addToCart(currentSuitId)">Kosárba</button>
             </div>
         </div>
 
