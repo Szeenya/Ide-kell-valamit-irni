@@ -7,4 +7,34 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+<<<<<<< Updated upstream
 );
+=======
+);
+
+CREATE TABLE suits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(100) NOT NULL,
+    color VARCHAR(100),
+    neck INT NOT NULL,
+    sleve INT NOT NULL,
+    waist INT NOT NULL, 
+    chest INT NOT NULL,
+    amount INT NOT NULL,
+    price INT NOT NULL
+);
+
+CREATE TABLE shopping_cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    suit_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (suit_id) REFERENCES suits(id) ON DELETE CASCADE
+);
+ALTER TABLE shopping_cart
+ADD COLUMN rented_from DATE,
+ADD COLUMN rented_until DATE;
+>>>>>>> Stashed changes

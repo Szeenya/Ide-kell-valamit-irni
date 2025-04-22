@@ -34,10 +34,14 @@ class UserController {
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+<<<<<<< Updated upstream
             header("Location: index.php?action=dashboard");
             exit();
+=======
+            return true; // Sikeres bejelentkezés
+>>>>>>> Stashed changes
         }
         
-        return "Invalid email or password";
+        return "Hibás email cím vagy jelszó!"; // Hibaüzenet
     }
 }
