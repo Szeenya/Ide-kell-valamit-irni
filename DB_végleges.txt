@@ -1,0 +1,47 @@
+CREATE DATABASE IF NOT EXISTS suit_db;
+USE suit_db;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_admin BOOLEAN DEFAULT FALSE;
+);
+
+CREATE TABLE suits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(100) NOT NULL,
+    color VARCHAR(100),
+    neck INT NOT NULL,
+    sleve INT NOT NULL,
+    waist INT NOT NULL, 
+    chest INT NOT NULL,
+    amount INT NOT NULL,
+    price INT NOT NULL
+);
+
+CREATE TABLE reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    suit_id INT NOT NULL,
+    quantity INT DEFAULT 1,
+    added_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    rented_from DATE,
+    rented_until DATE,
+    is_canceled BOOLEAN DEFAULT FALSE,
+    total_price INT NOT NULL
+);
+
+INSERT INTO suits(id, type, color, neck, sleve, waist, chest, amount, price) VALUES
+(1, 'Slimfit', 'fekete', 39, 64, 82, 100, 5, 7900),
+(2, 'Wedding', 'sötétkék', 40, 66, 86, 104, 3, 8000),
+(3, 'Classic', 'szürke', 41, 65, 88, 106, 4, 7200),
+(4, 'Tuxedo', 'fekete', 39, 64, 84, 102, 2, 7800),
+(5, 'Business', 'sötétbarna', 42, 67, 90, 110, 6, 7500),
+(6, 'Double-breasted', 'világosszürke', 43, 68, 94, 114, 3, 7700),
+(7, 'Slimfit', 'grafitszürke', 40, 65, 86, 104, 2, 7900),
+(8, 'Wedding', 'fehér', 41, 66, 88, 106, 5, 7600),
+(9, 'Tuxedo', 'bordó', 39, 64, 84, 102, 4, 7300),
+(10, 'Classic', 'kékesszürke', 42, 67, 90, 108, 6, 7000);

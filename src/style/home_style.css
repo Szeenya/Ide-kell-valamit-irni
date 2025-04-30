@@ -1,30 +1,15 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
     background-image: url("https://mcdn.wallpapersafari.com/medium/7/42/xqlgfA.jpg");
     backdrop-filter: blur(5px);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-
-
-.active {
-    background-color: #555;
-    border-radius: 4px;
-}
-
-.logout-btn {
-    background: none;
-    border: 1px solid white;
-    color: white;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
 }
 
 .hero {
@@ -87,8 +72,8 @@ main {
     display: flex;
     flex-direction: column;
     padding: 30px;
-    flex: 1;
-}
+    margin-top: 60px !important;
+    flex: 1 !important;}
 
 footer {
     background-color: #333;
@@ -100,4 +85,23 @@ footer {
 
 .contact-info p {
     margin: 0.5rem 0;
+}
+
+.d-block-w-100 {
+    width: 100%; /* A kép szélessége igazodik a szülő elemhez */
+    height: 400px; /* Alapértelmezett magasság kisebb, de arányos */
+    object-fit: cover; /* A kép kitölti a rendelkezésre álló helyet */
+}
+
+/* Kisebb képernyőkre vonatkozó stílusok */
+@media (max-width: 768px) {
+    .d-block-w-100 {
+        height: 300px; /* Kisebb magasság mobil eszközökön */
+    }
+}
+
+@media (max-width: 576px) {
+    .d-block-w-100 {
+        height: 200px; /* Még kisebb magasság nagyon kis képernyőkön */
+    }
 }

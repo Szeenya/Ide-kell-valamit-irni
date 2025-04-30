@@ -1,0 +1,112 @@
+.reservations-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.reservations-container h1 {
+    text-align: center;
+    color: #f9f7f7;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.reservations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.reservation-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reservation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reservation-card h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.reservation-card p {
+    color: #555;
+    margin: 0.7rem 0;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reservation-card p:last-child {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.no-reservations {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    padding: 3rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    padding: 1rem;
+    background: #fff3f4;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reservations-container {
+        padding: 10px;
+    }
+
+    .reservations-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .reservation-card {
+        padding: 1rem;
+    }
+
+    .reservation-card h3 {
+        font-size: 1.2rem;
+    }
+}

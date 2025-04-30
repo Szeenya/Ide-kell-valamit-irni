@@ -1,0 +1,190 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background-image: url("https://mcdn.wallpapersafari.com/medium/7/42/xqlgfA.jpg") !important;
+    backdrop-filter: blur(5px) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.container {
+    margin-top: 80px !important;
+    margin-bottom: 30px !important;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card-header {
+    background-color: #333 !important;
+    color: white !important;
+    border-radius: 15px 15px 0 0 !important;
+    padding: 20px !important;
+}
+
+.card-header h3 {
+    margin: 0 !important;
+    font-size: 1.5rem !important;
+}
+
+.card-body {
+    padding: 30px !important;
+}
+
+.form-label {
+    color: #333 !important;
+    font-weight: 500 !important;
+    margin-bottom: 8px !important;
+}
+
+.form-control {
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-control:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+.btn-primary {
+    background-color: #007bff !important;
+    border: none !important;
+    padding: 12px 30px !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn-primary:active {
+    transform: translateY(0) !important;
+}
+
+.alert {
+    border-radius: 8px !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+.alert-success {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+    color: #155724 !important;
+}
+
+.alert-danger {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+    color: #721c24 !important;
+}
+
+hr {
+    margin: 30px 0 !important;
+    border-color: #ddd !important;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 60px !important;
+    }
+    
+    .card-body {
+        padding: 20px !important;
+    }
+    
+    .btn-primary {
+        width: 100% !important;
+    }
+}
+
+/* Új reszponzív stílusok hozzáadása */
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: 60px !important;
+        padding: 15px !important;
+    }
+
+    .card {
+        margin: 0 10px !important;
+    }
+
+    .card-header {
+        padding: 15px !important;
+    }
+
+    .card-header h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .card-body {
+        padding: 15px !important;
+    }
+
+    .form-control {
+        font-size: 14px !important;
+        padding: 8px !important;
+    }
+
+    .btn-primary {
+        width: 100% !important;
+        padding: 10px !important;
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin-top: 50px !important;
+        padding: 10px !important;
+    }
+
+    .card-header h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .form-label {
+        font-size: 14px !important;
+    }
+
+    .alert {
+        padding: 10px !important;
+        font-size: 14px !important;
+    }
+}
+.contact-info {
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+footer .contact-info p {
+    margin: 5px 0;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+}

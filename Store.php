@@ -23,30 +23,17 @@ $suits = $suitModel->getAllSuits();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/hu.js"></script>
+<<<<<<< Updated upstream
+=======
+    <link rel="stylesheet" href="store_style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+>>>>>>> Stashed changes
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                
-            </div>
-            <ul class="nav-links">
-                <li><a href="home.php">Főoldal</a></li>
-                <li><a href="Store.php" class="active">Termékek</a></li>
-                <li><a href="#">Rólunk</a></li>
-                <li><a href="#">Kapcsolat</a></li>
-                <li class="user-info">
-                    <span>Üdvözöljük, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
-                    <form action="index.php" method="POST">
-                        <input type="hidden" name="logout" value="1">
-                        <button type="submit" class="logout-btn">Kijelentkezés</button>
-                    </form>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+    <?php include 'navbar.php'; ?>
+    
     <main>
+<<<<<<< Updated upstream
         <section class="products">
             <div class="product-list">
                 <?php foreach ($suits as $suit): ?>
@@ -63,10 +50,33 @@ $suits = $suitModel->getAllSuits();
                          class="product-image">
                     <h3 class="product-title"><?php echo htmlspecialchars($suit['type'] . " - " . $suit['color']); ?></h3>
                     <p class="product-price"><?php echo number_format($suit['price'], 0, ',', ' '); ?> Ft</p>
+=======
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Termékek listája -->
+                <div class="col-md-9">
+                    <section class="products">
+                        <div class="product-list">
+                            <?php foreach ($suits as $suit): ?>
+                            <div class="product-card" 
+                                 data-suit-id="<?php echo $suit['id']; ?>"
+                                 onclick="showModal(
+                                    <?php echo $suit['id']; ?>,
+                                    'src/images/oltony<?php echo $suit['id']; ?>.jfif', 
+                                    'Méret: <?php echo "Nyak: {$suit['neck']}cm, Ujj: {$suit['sleve']}cm, Derék: {$suit['waist']}cm, Mellkas: {$suit['chest']}cm"; ?>', 
+                                    '<?php echo number_format($suit['price'], 0, ',', ' ') . ' Ft'; ?>', 
+                                    '<?php echo htmlspecialchars($suit['type'] . " - " . $suit['color']); ?>')">
+                                <img src="src/images/oltony<?php echo $suit['id']; ?>.jfif" 
+                                     alt="<?php echo htmlspecialchars($suit['type']); ?>" 
+                                     class="product-image">
+                                <h3 class="product-title"><?php echo htmlspecialchars($suit['type'] . " - " . $suit['color']); ?></h3>
+                                <p class="product-price"><?php echo number_format($suit['price'], 0, ',', ' '); ?> Ft</p>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+>>>>>>> Stashed changes
                 </div>
-                <?php endforeach; ?>
-            </div>
-        </section>
 
         <!-- Modal ablak -->
         <div id="product-modal" class="modal">
@@ -75,6 +85,7 @@ $suits = $suitModel->getAllSuits();
                 <img id="modal-image" src="" alt="Termék kép">
                 <h3 id="modal-title"></h3>
                 <p id="modal-description"></p>
+<<<<<<< Updated upstream
                 <p id="modal-price"></p>
                 <div class="date-selection">
                     <label for="rental-dates">Bérlés időtartama:</label>
@@ -92,7 +103,15 @@ $suits = $suitModel->getAllSuits();
                     <ul id="cart-items"></ul>
                     <div id="cart-total">Összesen: 0 Ft</div>
                     <button onclick="clearCart()">Kosár törlése</button>
+=======
+                <p id="modal-base-price"></p>
+                <p id="modal-total-price"></p>
+                <div class="date-selection">
+                    <label for="rental-dates">Bérlés időtartama:</label>
+                    <input type="text" id="rental-dates" class="date-range" placeholder="Válassza ki a dátumokat">
+>>>>>>> Stashed changes
                 </div>
+                <button class="modal-button" onclick="ShowModal(currentSuitId)">Foglalás</button>
             </div>
         </div>
     </main>
@@ -105,6 +124,8 @@ $suits = $suitModel->getAllSuits();
         </div>
     </footer>
 
+    
     <script src="src/scripts/main_script.js"></script>
+
 </body>
 </html>

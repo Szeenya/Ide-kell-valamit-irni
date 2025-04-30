@@ -32,8 +32,14 @@ class SuitModel {
         try {
             $stmt = $this->pdo->prepare("
                 SELECT rented_from, rented_until 
+<<<<<<< Updated upstream
                 FROM shopping_cart 
                 WHERE suit_id = ?
+=======
+                FROM reservations 
+                WHERE suit_id = ? 
+                AND (is_canceled IS NULL OR is_canceled = 0)
+>>>>>>> Stashed changes
             ");
             $stmt->execute([$suitId]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);

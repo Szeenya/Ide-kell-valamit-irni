@@ -1,0 +1,59 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #f4f4f4;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background-image: url("https://mcdn.wallpapersafari.com/medium/7/42/xqlgfA.jpg");
+    backdrop-filter: blur(5px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main {
+    margin-top: 60px !important;
+    flex: 1 !important;
+}
+
+.about-us {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.about-us ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.about-us ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}

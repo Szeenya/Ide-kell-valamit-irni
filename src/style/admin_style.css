@@ -1,0 +1,103 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background-image: url("https://mcdn.wallpapersafari.com/medium/7/42/xqlgfA.jpg");
+    backdrop-filter: blur(5px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    margin-top: 80px !important;
+    margin-bottom: 30px !important;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+.card-title {
+    color: #333 !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    border-bottom: 2px solid #eee !important;
+    padding-bottom: 0.5rem !important;
+}
+
+.card-text {
+    color: #666 !important;
+    line-height: 1.6 !important;
+}
+
+.card-text strong {
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+.btn-danger {
+    width: 100% !important;
+    padding: 0.8rem !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-danger:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3) !important;
+}
+
+h2 {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.text-success {
+    color: #28a745 !important;
+    font-weight: bold !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+    font-weight: bold !important;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+    font-weight: bold !important;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 60px !important;
+    }
+    
+    .col-md-4 {
+        padding: 0.5rem !important;
+    }
+    
+    .card {
+        margin-bottom: 1rem !important;
+    }
+}

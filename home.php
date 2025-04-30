@@ -11,36 +11,42 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Öltönykölcsönző - Főoldal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/style/main_style.css">
     <link rel="stylesheet" href="src/style/home_style.css">
     <link rel="stylesheet" href="src/style/navbar.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-              
-            </div>
-            <ul class="nav-links">
-                <li><a href="home.php" class="active">Főoldal</a></li>
-                <li><a href="Store.php">Termékek</a></li>
-                <li><a href="#">Rólunk</a></li>
-                <li><a href="#">Kapcsolat</a></li>
-                <li class="user-info">
-                    <span>Üdvözöljük, <?php echo htmlspecialchars($_SESSION['username']); ?>!</span>
-                    <form action="index.php" method="POST" style="display: inline;">
-                        <input type="hidden" name="logout" value="1">
-                        <button type="submit" class="logout-btn">Kijelentkezés</button>
-                    </form>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+    <?php include 'navbar.php'; ?>
+    
     <main>
         <section class="hero">
-            <h2>Üdvözöljük az Öltönykölcsönzőben!</h2>
-            <p>Nálunk megtalálja a tökéletes öltönyt minden alkalomra.</p>
-            <a href="Store.php" class="cta-button">Böngészés</a>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/src/images/1slide.jpg" class="d-block-w-100" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/src/images/2slide.jpg" class="d-block-w-100" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/src/images/3slide.jpeg" class="d-block-w-100" alt="Third slide">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </section>
 
         <section class="features">
@@ -66,5 +72,6 @@ if (!isset($_SESSION['user_id'])) {
             <p>Cím: 1234 Budapest, Példa utca 1.</p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -9,34 +9,23 @@ class UserController {
     }
 
     public function register($username, $email, $password, $confirm_password) {
-        $errors = [];
-
-        if ($password !== $confirm_password) {
-            $errors[] = "Passwords do not match";
-        }
-
-        if (empty($errors)) {
-            if ($this->userModel->register($username, $email, $password)) {
-                $_SESSION['success'] = "Registration successful!";
-                header("Location: index.php?action=login");
-                exit();
-            } else {
-                $errors[] = "Registration failed";
-            }
-        }
-
-        return $errors;
+        // Eltávolítjuk az átirányítást
+        return $this->userModel->register($username, $email, $password, $confirm_password);
     }
 
     public function login($email, $password) {
         $user = $this->userModel->login($email, $password);
-        
+
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             return true; // Sikeres bejelentkezés
         }
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
         return "Hibás email cím vagy jelszó!"; // Hibaüzenet
     }
 }
